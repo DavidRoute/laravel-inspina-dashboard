@@ -27,11 +27,11 @@
     @yield('styles')
 
 </head>
-<body>
+<body class="">
     <div id="wrapper">
-        @include('backend.layouts.navigation')
+        @include('layouts.navigation')
         <div id="page-wrapper" class="gray-bg dashbard-1">
-            @include('backend.layouts.topnavbar')
+            @include('layouts.topnavbar')
 
             <!-- subheader -->
             @if(isset($heading))
@@ -41,16 +41,16 @@
             @endif
             
             <section class="wrapper wrapper-content animated fadeInRight">
-                <div class="row">
+               {{--  <div class="row">
                     <div class="col-md-12">
                         @include('layouts.flash-message')
                     </div>
-                </div>
+                </div> --}}
                 
                 {{ $slot }}
             </section><!-- /.content -->
            
-            @include('backend.layouts.footer')
+            @include('layouts.footer')
         </div>
     </div>
     <!-- Mainly scripts -->
@@ -69,42 +69,13 @@
    
     <script>
     $(document).ready(function(){
+        // Menu active class 
 
-         // show delete button alert //
-         $('.delete').on('click', function(){
-			let form = $(this).closest('.delete-form');
-			// console.log(form);
-			event.preventDefault();
-			$.confirm({
-				icon: 'fa fa-warning',
-				title: 'Are you sure to delete?',
-				content: "After deleting, data can't recovery again.",
-				type: 'red',
-				typeAnimated: true,
-				draggable: true,
-				backgroundDismiss: false,
-				backgroundDismissAnimation: 'glow',
-				buttons: {
-					delete: {
-						btnClass: 'btn-red any-other-class',
-						action: function () {
-							form.submit();
-						}
-					},
-					cancel: {
-						btnClass: 'btn-default any-other-class'
-					}
-				}
-			});
-		});
-
-        // Menu active class //
-        
-        var url = window.location;
-        $('ul.nav a[href="' + url.origin + '"]').parent().addClass('active');
-        $('ul.nav a').filter(function () {
-            return this.href == url;
-        }).parent().addClass('active').parent().addClass('collapse in');
+        // var url = window.location;
+        // $('ul.nav a[href="' + url.origin + '"]').parent().addClass('active');
+        // $('ul.nav a').filter(function () {
+        //     return this.href == url;
+        // }).parent().addClass('active').parent().addClass('collapse in');
         
     });
 

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::prefix(config('app.admin_prefix'))->group(function () // sample 'admin'
+{
+	Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+	Route::middleware(['auth'])->group(function () {
+		Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+		Route::resource('users', UserController::class);
+	});
+});
+
+
