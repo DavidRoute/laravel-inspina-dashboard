@@ -1,11 +1,11 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
-            <li class="nav-header">
+            <li class="">
                 <div class="dropdown profile-element">
-                   <a href="{{ route('dashboard') }}">
-                        <h3>GAME PJ</h3>
-                    </a>
+                    <h1 class="text-center">
+                       <a href="{{ route('dashboard') }}" class="text-white">SKM</a>
+                    </h1>
                 </div>
             </li>
 

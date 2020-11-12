@@ -1,8 +1,8 @@
 <div class="footer">
     <div class="float-right">
-        <strong>NextPG Payment</strong>.
+        <strong>SKM</strong>.
     </div>
     <div>
-        <strong>Copyright</strong> Nexidea &copy; {{ date('Y')}}
+        <strong>Copyright</strong> SKM &copy; {{ date('Y')}}
     </div>
 </div>

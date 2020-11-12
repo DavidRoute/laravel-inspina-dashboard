@@ -2,9 +2,9 @@
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
-                <h1 class="logo-name text-center">GP</h1>
+                <h1 class="logo-name text-center">SKM</h1>
             </div>
-            <h3>Welcome to <strong>GAME PROJECT</strong></h3>
+            <h3>Welcome to <strong>SKM</strong></h3>
             <p>Before getting started, can you please enter your email and password.</p>
 
             <form action="{{ route('login') }}" method="POST" class="m-t" role="form">
@@ -31,7 +31,7 @@
                 <button type="submit" class="btn btn-primary block full-width m-b">{{ __('Login') }}</button>
 
             </form>
-            <p class="m-t"> <small>Copyright Nexidea &copy; {{ date('Y')}}</small> </p>
+            <p class="m-t"> <small>Copyright SKM &copy; {{ date('Y')}}</small> </p>
         </div>
     </div>
 
