@@ -11,24 +11,22 @@
                 @csrf
 
                 <div class="form-group">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" autofocus />
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <x-input type="email" name="email" placeholder="Email" autofocus />
+                    <x-input-error for="email" />
                 </div>
 
                 <div class="form-group">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" autocomplete="current-password">
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <x-input type="password" name="password" placeholder="Password" />
+                    <x-input-error for="password" />
                 </div>
 
                 <button type="submit" class="btn btn-primary block full-width m-b">{{ __('Login') }}</button>
+
+                @if (Route::has('password.request'))
+                    <a href="{{ route('password.request') }}" class="forget_link btn btn-link">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                @endif
 
             </form>
             <p class="m-t"> <small>Copyright SKM &copy; {{ date('Y')}}</small> </p>
