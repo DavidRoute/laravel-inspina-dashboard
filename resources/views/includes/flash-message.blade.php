@@ -8,6 +8,6 @@
 @if ($errors->any())
     <div class="alert alert-danger alert-dismissable">
         <button type="button" class="close" data-dismiss="alert">×</button>    
-        <strong>Please check the form below for errors.</strong>
+        Please check the form below for errors.
     </div>
 @endif

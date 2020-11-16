@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\CreateUserRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -34,9 +35,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        //
+        $data = $request->validated();
+        $data['password'] = bcrypt($request->password);
+
+        User::create($data);
+
+        return redirect()
+            ->route('users.index')
+            ->with('success', 'Successfully Created.');
     }
 
     /**
