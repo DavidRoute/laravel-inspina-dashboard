@@ -41,11 +41,7 @@
             @endif
             
             <section class="wrapper wrapper-content animated fadeInRight">
-               {{--  <div class="row">
-                    <div class="col-md-12">
-                        @include('layouts.flash-message')
-                    </div>
-                </div> --}}
+                @include('includes.flash-message')
                 
                 {{ $slot }}
             </section><!-- /.content -->
