@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -64,9 +65,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -76,9 +77,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->validated($user);
+
+        $user->update($data);
+
+        return redirect()
+            ->route('users.index')
+            ->with('success', 'Successfully Updated.');
     }
 
     /**
