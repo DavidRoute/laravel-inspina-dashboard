@@ -15,7 +15,7 @@
             </ol>
         </div>
     </x-slot>
-    <!--end heading-->
+    <!--end::heading-->
 
     <!--content-->
     <div class="row">

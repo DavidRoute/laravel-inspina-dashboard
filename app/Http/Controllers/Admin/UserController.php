@@ -17,7 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index');
+        $users = User::paginate();
+
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -45,7 +47,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('users.index')
-            ->with('success', 'Successfully Created.');
+            ->with('success', 'Successfully created.');
     }
 
     /**
@@ -85,7 +87,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('users.index')
-            ->with('success', 'Successfully Updated.');
+            ->with('success', 'Successfully updated.');
     }
 
     /**
@@ -94,8 +96,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return back()->with('success', 'Successfully deleted.');
     }
 }
