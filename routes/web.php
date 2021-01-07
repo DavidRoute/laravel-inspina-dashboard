@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,13 @@ Route::prefix(config('app.admin_prefix'))->group(function () // sample 'admin'
 
 	Route::middleware(['auth'])->group(function () {
 		Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+		// change password
+		Route::get('profile/change-password', [ProfileController::class, 'changePasswordForm'])
+			->name('change-password.show');
+    	Route::post('profile/change-password', [ProfileController::class, 'changePassword'])
+    		->name('change-password');
+
 		Route::resource('users', UserController::class);
 	});
 });
