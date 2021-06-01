@@ -7,6 +7,7 @@ use App\Http\Requests\CreateUserRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Filters\UserFilter;
 
 class UserController extends Controller
 {
@@ -15,9 +16,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UserFilter $filter)
     {
-        $users = User::paginate();
+        $users = User::filter($filter)->latest()->paginate();
 
         return view('admin.users.index', compact('users'));
     }

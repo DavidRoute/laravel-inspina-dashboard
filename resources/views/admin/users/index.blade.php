@@ -21,7 +21,7 @@
                 <!-- name -->
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" value="{{ request('name') }}" class="form-control" placeholder="Search by Keywords...">
+                        <input type="text" id="keywords" name="keywords" value="{{ request('keywords') }}" class="form-control" placeholder="Search by Keywords...">
                     </div>
                 </div>
 
